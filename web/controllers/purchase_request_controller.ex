@@ -9,4 +9,9 @@ defmodule PurchaseManager.PurchaseRequestController do
     purchase_requests = Repo.all(PurchaseRequest)
     render conn, purchase_requests: purchase_requests
   end
+
+  def show(conn, %{"id" => id}) do
+    purchase_request = Repo.get(PurchaseRequest, id)
+    render conn, purchase_request: purchase_request
+  end
 end
