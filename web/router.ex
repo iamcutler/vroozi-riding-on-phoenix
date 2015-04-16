@@ -19,7 +19,9 @@ defmodule PurchaseManager.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", PurchaseManager do
-  #   pipe_through :api
-  # end
+  scope "/api", PurchaseManager do
+    pipe_through :api
+
+    resources "/purchase-requests", PurchaseRequestController
+  end
 end
