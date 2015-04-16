@@ -24,4 +24,10 @@ defmodule PurchaseManager.PurchaseRequest do
     model
     |> cast(params, @required_fields, @optional_fields)
   end
+
+  # Sort by inserted timestamp descending
+  def inserted_desc(query) do
+    from r in query,
+    order_by: [desc: r.inserted_at]
+  end
 end

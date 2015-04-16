@@ -6,7 +6,8 @@ defmodule PurchaseManager.PurchaseRequestController do
   plug :action
 
   def index(conn, _params) do
-    purchase_requests = Repo.all(PurchaseRequest)
+    purchase_requests = Repo.all(PurchaseRequest
+                                    |> PurchaseRequest.inserted_desc)
     render conn, purchase_requests: purchase_requests
   end
 
